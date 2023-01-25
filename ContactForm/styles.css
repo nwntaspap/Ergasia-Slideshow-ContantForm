@@ -1,0 +1,74 @@
+/*---------- Reset ----------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*---------- Main Styling ----------*/
+html, body {
+    height: 100%;
+}
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.7em;
+    /* padding-top: 67px; */
+}
+a {
+    text-decoration: none;
+    color: #333;
+    /* border: 1px solid green; */
+}
+/*---------- Contact Form ----------*/
+#contact-container {
+    padding: 67px;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+form { 
+    max-width:420px; margin:50px auto;
+}
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid rgb(207, 125, 19);
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { 
+    border:2px solid #CC4444; 
+}
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight: bold;
+}
+[type="submit"]:hover { background:#cd3333; }	
