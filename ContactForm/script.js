@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		const errors = {};
 
 		//Validate name
-		if(formData.get('name').trim().length) {
-
+		if(formData.get('name').trim().length === 0) {
+			errors['name'] = 'Please fill the Name'
 		}
 
 		//Validate email
