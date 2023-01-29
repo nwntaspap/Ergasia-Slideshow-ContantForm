@@ -40,7 +40,6 @@ form {
   border: 2px solid rgb(207, 125, 19);
   transition: all 0.3s;
   padding: 13px;
-  margin-bottom: 15px;
   width:100%;
   box-sizing: border-box;
   outline:0;
@@ -67,4 +66,21 @@ textarea {
   margin-top:-4px;
   font-weight: bold;
 }
-[type="submit"]:hover { background:#cd3333; }	
+[type="submit"]:hover { background:#cd3333; }
+.row {
+    margin-bottom: 15px;
+}
+.row .error {
+    color: red;
+    font-size: 12px;
+}
+
+.success {
+    display: none;
+    margin: 20px 0;
+    background: green;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 12px;
+}
