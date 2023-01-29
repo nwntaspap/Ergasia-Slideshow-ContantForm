@@ -7,10 +7,14 @@ window.addEventListener('DOMContentLoaded', () => {
         'slide5.jpg',
     ];
     let currentImageIndex = 0;
+    let sliderInterval = null;
 
     const previousBtn = document.querySelector("#previousBtn");
     const nextBtn = document.querySelector("#nextBtn");
     const thubnailsContainer = document.querySelector('#thubnailsContainer');
+    const playBtn = document.querySelector('#play');
+    const pauseBtn = document.querySelector('#pause');
+
 
     const print = () => {
          const currentImage = images[currentImageIndex];
@@ -18,20 +22,20 @@ window.addEventListener('DOMContentLoaded', () => {
          const thubnailsContainer = document.querySelector('#thubnailsContainer');
 
          slideImage.src = './images/' + currentImage;
-
-         let thubnailsImagesTemplate = '';
+         thubnailsContainer.innerHTML = '';
          images.forEach((image, index) => {
              let classNames = 'dot';
              if(index === currentImageIndex) {
                  classNames += ' active'
              }
-             thubnailsImagesTemplate += `
-                <img class="${classNames}" 
-                     src="./images/${image}" 
-                />
-            `;
+
+             let img = document.createElement('img');
+             img.className = classNames;
+             img.onclick = () => makeImageCurrent(index);
+             img.src = `./images/${image}`;
+
+             thubnailsContainer.appendChild(img)
          });
-         thubnailsContainer.innerHTML = thubnailsImagesTemplate;
     }
 
     const previewNextImage = () => {
@@ -50,10 +54,28 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         print();
     }
+    const makeImageCurrent = imageindex => {
+        currentImageIndex = imageindex;
+        print();
+
+    }
+
 
     nextBtn.addEventListener('click', previewNextImage);
 
     previousBtn.addEventListener('click', previewPreviousImage);
+
+    playBtn.addEventListener('click', () => {
+        playBtn.style.display = 'none';
+        pauseBtn.style.display = 'inline';
+        sliderInterval = setInterval(previewNextImage, 3000);
+    })
+
+    pauseBtn.addEventListener('click', () => {
+        pauseBtn.style.display = 'none';
+        playBtn.style.display = 'inline';
+        clearInterval(sliderInterval);
+    })
 
     print();
 })
